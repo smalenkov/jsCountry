@@ -1,5 +1,5 @@
-$(window).load(function () {
-    var str = "hello world";
+$(function () {
+    var str = "СПЕЦПРЕДЛОЖЕНИЯ ДЕЙСТВУЮЩИЕ ТОЛЬКО НА СТЕНДЕ:";
 
     function enternum() {
         var val = prompt("Введи число от 1 до 4");
@@ -38,10 +38,19 @@ $(window).load(function () {
     }
 
 //  $("strong", "#mainp").html(Oleg.name);
-    if (Man1.name) {
-        $("#mainp > strong").html(Man1.name);
-        $("#mainp > strong").css({"font-size": "24px", "margin-bottom": "10px", "display": "block"});
-    } else {
-        $("#mainp > strong").html("Хер");
+    function printif() {
+        if (Man1.name) {
+            $("#mainp > strong").html(Man1.name);
+            $("#mainp > strong").css({"font-size": "24px", "margin-bottom": "10px", "display": "block"});
+        } else {
+            $("#mainp > strong").html(str.toLowerCase());
+        }
     }
+
+    $("button").bind("click", function() {
+        printif();
+        $(this).remove();
+        $("#news").load("ajax.php");
+    });
+
 });
