@@ -1,0 +1,57 @@
+<style>
+  #banner {
+    float: left;
+    display: block;
+    margin: 0px;
+  }
+</style>
+
+<a id="banner" href="%reference%" target="%target%" >
+	<img id="image_1" src="img1.jpg" style="display: block;">
+	<img id="image_2" src="img2.jpg" style="display: none;">
+</a>
+
+<script type="text/javascript">
+  function addEvent(elem, type, handler) {
+    if (elem.addEventListener) {
+      elem.addEventListener(type, handler, false)
+    } else {
+      elem.attachEvent("on"+type, handler)
+    }
+  }
+
+  var banner = document.getElementById('banner');
+
+  addEvent(banner, 'mouseover', function() {
+    // expandStart();
+    expand();
+  });
+
+  addEvent(banner, 'mouseout', function() {
+    // expandEnd();
+    collapse();
+  })
+
+  function expand() {
+    document.getElementById('image_1').style.display = 'none';
+    document.getElementById('image_2').style.display = 'block';
+  }
+
+  function collapse() {
+    document.getElementById('image_1').style.display = 'block';
+    document.getElementById('image_2').style.display = 'none';
+  }
+</script>
+<!--
+Для добавления в ADFOX баннера потребуется информация:
+1. HTML код баннера
+2. Соответствие:
+ картинка 1 - переменная %user1%
+ картинка 2 - переменная %user2%
+3. Ссылку для перехода
+4. Размеры свернутого и развернутого баннера в пикселях
+5. Имена функции:
+ для расхлопа контейнера: expandStart
+ для схлопа контейнера: expandEnd
+ для расхлопа креатива: expand
+-->
