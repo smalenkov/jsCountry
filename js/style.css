@@ -2,24 +2,55 @@
 /*
 	Roboto, 100, 100 italic, 300, 300 italic, 400, 400 italic, 500, 500 italic, 700, 700 italic, 900, 900 italic
 */
-
 @import "http://webfonts.ru/import/casper.css";
+
 /*
 	Casper, 400, 400 italic, 700, 700 italic
 */
 
-
-
 html, body {
     font-family: Casper, sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
 }
 
 body {
-    background-color: #424641;
     color: azure;
-    text-align: center;
 }
 
 p {
+    margin-top: 0;
     text-shadow: 0.5px 0.7px 1.7px #000;
+}
+
+.wrapper {
+    height: 100%;
+    overflow: hidden;
+}
+
+.maincontent {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.page {
+    height: 100%;
+    width: 100%;
+}
+
+.section-1 {
+    background-color: #424641;
+    text-align: center;
+}
+
+.section-2 {
+    left:50px;
+    background-color: #227641;
+}
+
+.section-3 {
+    background-color: #754631;
 }

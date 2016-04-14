@@ -10,7 +10,7 @@ $(function () {
     this.name = name;
     this.years = years;
     this.sex = sex;
-  }
+  };
 
   var Man1 = new Man("Николай", 13, "men");
 
@@ -50,7 +50,16 @@ $(function () {
   $("button").bind("click", function () {
     printif();
     $(this).remove();
-    $("#news").load("ajax.php");
+    $("#news").load("ajax.php", Man1);
+  });
+
+  $(".section-1").on("mousewheel", function(event) {
+    if (event.deltaY < 0) {
+      $(".maincontent").css("top", "-100%");
+    } else {
+      $(".maincontent").css("top", "100%");
+    }
+    //console.log(event.deltaY);
   });
 
 });
