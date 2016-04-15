@@ -54,3 +54,40 @@ p {
 .section-3 {
     background-color: #754631;
 }
+
+.superlink {
+    font-size: 24px;
+    color:#fff;
+    text-decoration: none;
+    position: relative;
+    /*display: block;*/
+    padding: 8px;
+    z-index: 2;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(1,0,1,1);
+}
+
+.superlink:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    background: #eaeaea;
+    height: 0;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: cubic-bezier(1,0,1,1);
+}
+
+.superlink:hover:after {
+    height: 40px;
+}
+
+.superlink:hover {
+    color: black;
+}

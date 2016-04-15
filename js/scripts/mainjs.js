@@ -50,7 +50,7 @@ $(function () {
   $("button").bind("click", function () {
     printif();
     $(this).remove();
-    $("#news").load("ajax.php", Man1);
+    $("#news").load("ajax.php");
   });
 
   $(".section-1").on("mousewheel", function(event) {
@@ -62,4 +62,9 @@ $(function () {
     //console.log(event.deltaY);
   });
 
+  //var el = document.getElementsByClassName('section-3');
+  //user = el[0].dataset.name;
+  //el[0].dataset.sec = "Хер";
+  //alert(user);
+  //alert(document.URL);
 });
