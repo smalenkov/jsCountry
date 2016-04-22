@@ -50,17 +50,39 @@ $(function () {
   $("button").bind("click", function () {
     printif();
     $(this).remove();
-    $("#news").load("ajax.php");
+    //$("#news").load("ajax.php");
+    $.get(
+      "ajax.php",
+      {
+        jokk: "Петр"
+      },
+      onAjaxSuccess
+    );
   });
 
-  $(".section-1").on("mousewheel", function(event) {
-    if (event.deltaY < 0) {
-      $(".maincontent").css("top", "-100%");
-    } else {
-      $(".maincontent").css("top", "100%");
-    }
-    //console.log(event.deltaY);
-  });
+  function onAjaxSuccess(data) {
+    $("#news").html(data);
+  }
+
+
+  ;(function ($) {
+    var app = $.sammy(function () {
+
+      this.get('#/vsevolozhsk', function () {
+        $("#arealtextid").load('htmlmaps/vsevolozhsk.html').animateCss('fadeInUp');
+      });
+
+      this.get('#/romanovka', function () {
+        $("#arealtextid").load('htmlmaps/romanovka.html').animateCss('fadeInUp');
+      });
+
+    });
+
+    $(function () {
+      app.run()
+    }); })(jQuery);
+
+
 
   //var el = document.getElementsByClassName('section-3');
   //user = el[0].dataset.name;
