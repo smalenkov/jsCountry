@@ -1,11 +1,6 @@
 $(function () {
   var str = "СПЕЦПРЕДЛОЖЕНИЯ ДЕЙСТВУЮЩИЕ ТОЛЬКО НА СТЕНДЕ:";
 
-  function enternum() {
-    var val = prompt("Введи число от 1 до 4");
-    swi(+val);
-  }
-
   var Man = function (name, years, sex) {
     this.name = name;
     this.years = years;
@@ -13,29 +8,6 @@ $(function () {
   };
 
   var Man1 = new Man("Николай", 13, "men");
-
-//    enternum();
-
-  function swi(e) {
-    switch (e) {
-      case 1:
-        alert("One");
-        enternum();
-        break;
-      case 2:
-        alert("Two");
-        enternum();
-        break;
-      case 3:
-        alert("Three");
-        enternum();
-        break;
-      case 4:
-        alert("Four");
-        enternum();
-        break;
-    }
-  }
 
 //  $("strong", "#mainp").html(Oleg.name);
   function printif() {
@@ -50,43 +22,78 @@ $(function () {
   $("button").bind("click", function () {
     printif();
     $(this).remove();
+    //$("#newstext").load('html/page.html');
     //$("#news").load("ajax.php");
-    $.get(
-      "ajax.php",
-      {
-        jokk: "Петр"
-      },
-      onAjaxSuccess
-    );
+    //  $.get(
+    //    "ajax.php",
+    //    {
+    //      jokk: "Петр"
+    //    },
+    //    onAjaxSuccess
+    //  );
+    //});
+    //
+    //function onAjaxSuccess(data) {
+    //  $("#news").html(data);
   });
 
-  function onAjaxSuccess(data) {
-    $("#news").html(data);
-  }
-
-
-  ;(function ($) {
-    var app = $.sammy(function () {
-
-      this.get('#/vsevolozhsk', function () {
-        $("#arealtextid").load('htmlmaps/vsevolozhsk.html').animateCss('fadeInUp');
-      });
-
-      this.get('#/romanovka', function () {
-        $("#arealtextid").load('htmlmaps/romanovka.html').animateCss('fadeInUp');
-      });
-
-    });
-
-    $(function () {
-      app.run()
-    }); })(jQuery);
-
-
+  //$("#news").load("html/page.html");
+  $("#news").load("ajaxload.php");
 
   //var el = document.getElementsByClassName('section-3');
   //user = el[0].dataset.name;
   //el[0].dataset.sec = "Хер";
   //alert(user);
   //alert(document.URL);
+
+  ;(function ($) {
+    var app = $.sammy(function () {
+
+      this.get('#/vse', function () {
+        $("#newstext").load('html/page.html');
+      });
+
+      this.get('#/voronezh', function () {
+        $.get(
+          "ajaxloadtext.php",
+          {
+            nameen: "voronezh"
+          },
+          onAjaxSuccess
+        );
+      });
+
+      this.get('#/vorkuta', function () {
+        $.get(
+          "ajaxloadtext.php",
+          {
+            nameen: "vorkuta"
+          },
+          onAjaxSuccess
+        );
+      });
+
+      this.get('#/vladimir', function () {
+        $.get(
+          "ajaxloadtext.php",
+          {
+            nameen: "vladimir"
+          },
+          onAjaxSuccess
+        );
+      });
+
+      function onAjaxSuccess(data) {
+        $("#newstext").html(data);
+      }
+
+    });
+
+    $(function () {
+      app.run()
+    });
+  })(jQuery);
+
 });
+
+
