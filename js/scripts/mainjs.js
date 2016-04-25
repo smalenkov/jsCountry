@@ -38,7 +38,28 @@ $(function () {
   });
 
   //$("#news").load("html/page.html");
-  $("#news").load("ajaxload.php");
+  //$("#news").load("ajaxload.php");
+
+  $.get(
+    "ajaxload.php", toJson
+  );
+
+  function toJson(data) {
+    jsonobj = $.parseJSON(data);
+    toJsonnext(jsonobj);
+    //alert(jsonobj);
+    //jsonobjstr = JSON.stringify(jsonobj, "", 2);
+    //alert(jsonobjstr);
+    //alert(jsonobj[0][2]);
+    //alert(jsonobj.length);
+  }
+
+  function toJsonnext(obj) {
+    var i = 0;
+    for (; i < obj.length; i++) {
+      $("#news").innerHTML(obj[i][0]);
+    }
+  }
 
   //var el = document.getElementsByClassName('section-3');
   //user = el[0].dataset.name;
@@ -48,10 +69,18 @@ $(function () {
 
   ;(function ($) {
     var app = $.sammy(function () {
-
-      this.get('#/vse', function () {
-        $("#newstext").load('html/page.html');
+      var i = 0;
+      for (; i < jsonobj.length; i++) {
+      this.get('#/'+jsonobj[i][0], function () {
+        $.get(
+          "ajaxloadtext.php",
+          {
+            nameen: jsonobj[i][0]
+          },
+          onAjaxSuccess
+        );
       });
+    }
 
       this.get('#/voronezh', function () {
         $.get(
