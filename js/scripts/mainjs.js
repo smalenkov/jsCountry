@@ -22,23 +22,7 @@ $(function () {
   $("button").bind("click", function () {
     printif();
     $(this).remove();
-    //$("#newstext").load('html/page.html');
-    //$("#news").load("ajax.php");
-    //  $.get(
-    //    "ajax.php",
-    //    {
-    //      jokk: "Петр"
-    //    },
-    //    onAjaxSuccess
-    //  );
-    //});
-    //
-    //function onAjaxSuccess(data) {
-    //  $("#news").html(data);
   });
-
-  //$("#news").load("html/page.html");
-  //$("#news").load("ajaxload.php");
 
   $.get(
     "ajaxload.php", toJson
@@ -47,52 +31,29 @@ $(function () {
   function toJson(data) {
     jsonobj = $.parseJSON(data);
     toJsonnext(jsonobj);
-    //alert(jsonobj);
-    //jsonobjstr = JSON.stringify(jsonobj, "", 2);
-    //alert(jsonobjstr);
-    //alert(jsonobj[0][2]);
-    //alert(jsonobj.length);
   }
 
   function toJsonnext(obj) {
-    //alert(obj);
     var i = 0;
     for (; i < obj.length; i++) {
       $("#news").append("<button>");
-
-      //$("#news").append("<button>").attr("href", obj[i][0]);
     }
-      i = 0;
-      $("#news button").each(function() {
+    i = 0;
+    $("#news button").each(function () {
       $(this).text(obj[i][1]);
-        i++
+      $(this).wrap("<form>");
+      $(this).parent().attr("action", "#/" + obj[i][0]);
+      i++
     });
-      //$("#news").append("<button>").attr("href", obj[i][0]);
-    //$("#news button").html(function(index, oldhtml){
-    //  $this
-    //});
   }
 
-  //var el = document.getElementsByClassName('section-3');
-  //user = el[0].dataset.name;
-  //el[0].dataset.sec = "Хер";
-  //alert(user);
-  //alert(document.URL);
 
-  ;(function ($) {
+  //;(function ($) {
     var app = $.sammy(function () {
-      var i = 0;
-      for (; i < jsonobj.length; i++) {
-      this.get('#/'+jsonobj[i][0], function () {
-        $.get(
-          "ajaxloadtext.php",
-          {
-            nameen: jsonobj[i][0]
-          },
-          onAjaxSuccess
-        );
-      });
-    }
+
+      //bind('#mainp', function(e, data) {
+      //  this.redirect('#/');
+      //});
 
       this.get('#/voronezh', function () {
         $.get(
@@ -133,7 +94,7 @@ $(function () {
     $(function () {
       app.run()
     });
-  })(jQuery);
+  //})(jQuery);
 
 });
 
