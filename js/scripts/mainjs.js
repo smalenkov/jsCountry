@@ -55,10 +55,22 @@ $(function () {
   }
 
   function toJsonnext(obj) {
+    //alert(obj);
     var i = 0;
     for (; i < obj.length; i++) {
-      $("#news").innerHTML(obj[i][0]);
+      $("#news").append("<button>");
+
+      //$("#news").append("<button>").attr("href", obj[i][0]);
     }
+      i = 0;
+      $("#news button").each(function() {
+      $(this).text(obj[i][1]);
+        i++
+    });
+      //$("#news").append("<button>").attr("href", obj[i][0]);
+    //$("#news button").html(function(index, oldhtml){
+    //  $this
+    //});
   }
 
   //var el = document.getElementsByClassName('section-3');
