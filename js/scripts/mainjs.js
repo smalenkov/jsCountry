@@ -20,7 +20,6 @@ $(function () {
   }
 
   $("button").bind("click", function () {
-    printif();
     $(this).remove();
   });
 
@@ -47,6 +46,10 @@ $(function () {
     });
   }
 
+  (function () {
+    var bb = 100;
+    return alert(bb)
+  })();
 
   //;(function ($) {
     var app = $.sammy(function () {
@@ -54,6 +57,20 @@ $(function () {
       //bind('#mainp', function(e, data) {
       //  this.redirect('#/');
       //});
+
+      //var i = 0;
+      //for (; i < window.arr.length; i++) {
+      //  var linkstr = '#/'+window.arr[i][0];
+      //  this.get(linkstr, function () {
+      //    $.get(
+      //      "ajaxloadtext.php",
+      //      {
+      //        nameen: window.arr[i][0]
+      //      },
+      //      onAjaxSuccess
+      //    );
+      //  });
+      //}
 
       this.get('#/voronezh', function () {
         $.get(
@@ -83,6 +100,10 @@ $(function () {
           },
           onAjaxSuccess
         );
+      });
+
+      bind('onAjaxSuccess', function(e, data) {
+        this.get('#/voronezh');
       });
 
       function onAjaxSuccess(data) {
