@@ -1,0 +1,85 @@
+html,
+body {
+    background-color: #ccc;
+}
+
+a {
+    border: 0;
+}
+
+.top-menu-box {
+    position: relative;
+    background-color: white;
+
+}
+
+.top-menu-item {
+    display: inline-block;
+    padding: 12px;
+}
+
+.top-menu {
+    margin: 0;
+    width: auto;
+    padding: 0 100px;
+}
+
+.submenu-boxwrap {
+    background-color: #fff;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 92px;
+}
+
+.submenu-box {
+    position: relative;
+}
+
+.submenu-item {
+    border: 1px solid;
+    position: relative;
+    display: inline-block;
+    padding: 8px;
+    padding: 0;
+}
+
+#helper {
+    margin-top: 200px;
+}
+
+.mainmenu_subcat {
+    opacity: 0;
+    display: block;
+    height: 0;
+    z-index: 2; }
+
+.mainmenu_subcat {
+    position: relative;
+    z-index: 2; }
+
+.mainmenu_subcat:before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin: 0 0 0 -8px;
+    border-width: 0 8px 11px;
+    border-style: solid;
+    border-color: transparent transparent #d2d2d2 transparent; }
+
+.mainmenu_subcat:after {
+    margin: 0 0 0 -7px;
+    border-width: 0 7px 10px;
+    border-color: transparent transparent #fff transparent;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-style: solid; }
