@@ -1,21 +1,33 @@
 html,
 body {
     background-color: #ccc;
-}
+    font: 100%/1.4em Arial, Helvetica, sans-serif; }
 
 a {
-    border: 0;
+    color: #007ee1;
+    transition: border-color 0.3s ease-out 0s;
+    border-bottom: 1px solid rgba(20, 108, 177, 0); }
+
+a:hover {
+    color: #146CB1;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(20, 108, 177, 0.6);
+    text-decoration: none; }
+
+.main-menu-second a {
+    color: #333;
 }
 
-.top-menu-box {
+#top-menu-box {
     position: relative;
     background-color: white;
-
+    border-bottom: 1px solid #646668;
 }
 
 .top-menu-item {
     display: inline-block;
-    padding: 12px;
+    font-size: 1.375em;
+    list-style: none;
 }
 
 .top-menu {
@@ -24,26 +36,30 @@ a {
     padding: 0 100px;
 }
 
+.top-menu-item > a {
+    display: block;
+    padding: 16px 20px;
+    color: #323232;
+    border: 0; }
+
+.top-menu-item > a:hover {
+    text-decoration: none;
+    color: #146cb1; }
+
 .submenu-boxwrap {
+    border-top: 1px solid #CCC6C6;
+    border-bottom: 1px solid #504D4D;
     background-color: #fff;
     position: absolute;
     z-index: -2;
     top: 0;
     left: 0;
     right: 0;
-    padding: 0 92px;
+    padding: 14px 92px;
 }
 
 .submenu-box {
     position: relative;
-}
-
-.submenu-item {
-    border: 1px solid;
-    position: relative;
-    display: inline-block;
-    padding: 8px;
-    padding: 0;
 }
 
 #helper {
@@ -63,7 +79,7 @@ a {
 .mainmenu_subcat:before {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: 0px;
     left: 50%;
     width: 0;
     height: 0;
@@ -78,8 +94,30 @@ a {
     border-color: transparent transparent #fff transparent;
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: -1px;
     left: 50%;
     width: 0;
     height: 0;
-    border-style: solid; }
+    border-style: solid;
+}
+
+.logo-top {
+    display: inline;
+}
+
+.logo-top img {
+    vertical-align: middle;
+}
+
+.submenu-item {
+    padding: 6px 12px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    color: #323232;
+    font-size: 16px;
+}
+
+.submenu-item:hover {
+    text-decoration: none;
+    border: 1px solid #88B5DF;
+    color: #323232; }
